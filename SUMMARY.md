@@ -5,4 +5,6 @@
    * [1.1 ARM概述](11_armgai_shu.md)
 * [test](test.md)
    * [1](1.md)
+* [第7章  ADC接口](di_7_zhang_adc_jie_kou.md)
+   * 7.1 ADC接口介绍
 
