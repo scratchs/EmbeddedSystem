@@ -26,37 +26,39 @@ WiFI的驱动程序在drivers/net/wireless/目录中。在内核配置菜单中�
 
 
 wpa_supplicant的标准结构框图如下所示。我们重点关注框图的下半部分，即wpa_supplicant是如何与Driver进行联系的。整个过程以AP发出SCAN命令为主线，其实用NDIS也一样，整个流程相差不远。
-
+![](图片7.png)
 
 
 
 
 ## 15.2.3 JNI层
 Android中的WiFi系统的JNI部分实现的源代码如下。
+
 frameworks/base/core/jni/android_net_wifi_Wifi.cpp
 
 
 JNI层的接口注册到Java层的源代码如下。
-frameworks/base/wifi/java/android/net/wifi/WifiNative.java
 
+frameworks/base/wifi/java/android/net/wifi/WifiNative.java
 
 WifiNative将为WifiService、WifiStateTracker、WifiMonitor等几个框架内部组件提供底层操作支持。
 
-
 此处实现的本地函数都是通过调用wpa_supplicant适配层的接口来实现的（包含适配层的头文件wifi.h）。wpa_supplicant适配层是通用的wpa_supplicant的封装。在Android中作为WiFi部分的硬件抽象层来使用。wpa_supplicant适配层主要用于封装与wpa_supplicant守护进程的通信，以提供给Android框架使用。它实现了加载、控制和消息监控等功能。wpa_supplicant适配层的头文件如下所示。
+
 hardware/libhardware_legacy/include/hardware_legacy/wifi.h
 
 
 ## 15.2.4 Java FrameWork层
 
 WiFi系统的Java部分代码实现的目录如下所示。
+
 frameworks/base/wifi/java/android/net/wifi/		//WiFi服务层的内容
 frameworks/base/services/java/com/android/server	//WiFi部分的接口
 
 WiFi系统Java层的核心是根据IWifiManager接口所创建的Binder服务器端和客户端，服务器端是WifiService，客户端是WifiManager。
 
 编译IWifiManager.aidl生成文件IWifiManager.java，并生成IWifiManager.Stub（服务器端抽象类）和IWifiManager.Stub.Proxy（客户端代理生成类）。WifiService通过继承IWifiManager.Stub实现，而客户端通过getService()函数获取IWifiManager.Stub.Proxy（即Service的代理类），将其作为参数传递给WifiManager，供其与WifiService通信时使用。
-
+![](图片8.png)
 
 
 * WifiManager是WiFi部分与外界的接口，用户通过它来访问WiFi的核心功能，WifiWatchdogService这一系统组件也是用WifiManager来执行一些具体操作。
