@@ -12,5 +12,5 @@
    * [12.3 小结](123_xiao_jie.md)
 * [第13章 LCD驱动开发](di_13_zhang_lcd_qu_dong_kai_fa.md)
    * [13.1 LCD基础介绍](131_lcdji_chu_jie_shao.md)
-   * 13.2 LCD驱动介绍
+   * [13.2 LCD驱动介绍](132_lcdqu_dong_jie_shao.md)
 
