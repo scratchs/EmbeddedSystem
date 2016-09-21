@@ -32,5 +32,5 @@
    * [16.4 小结](164_xiao_jie.md)
 * [第17章 传感器系统](di_17_zhang_chuan_gan_qi_xi_tong.md)
    * [17.1 传感器系统的结构](171_chuan_gan_qi_xi_tong_de_jie_gou.md)
-   * 17.2 移植Sensor驱动
+   * [17.2 移植Sensor驱动](172_yi_zhi_sensor_qu_dong.md)
 
