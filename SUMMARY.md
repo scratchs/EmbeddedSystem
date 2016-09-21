@@ -31,5 +31,5 @@
    * [16.3 移植和调试](163_yi_zhi_he_diao_shi.md)
    * [16.4 小结](164_xiao_jie.md)
 * [第17章 传感器系统](di_17_zhang_chuan_gan_qi_xi_tong.md)
-   * 17.1 传感器系统的结构
+   * [17.1 传感器系统的结构](171_chuan_gan_qi_xi_tong_de_jie_gou.md)
 
