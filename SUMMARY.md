@@ -25,5 +25,5 @@
    * [15.2 移植和调试](152_yi_zhi_he_diao_shi.md)
    * [15.3 配置WiFi的流程](153_pei_zhi_wifi_de_liu_cheng.md)
    * [15.4 小结](154_xiao_jie.md)
-* 第16章 GPS子系统
+* [第16章 GPS子系统](di_16_zhang_gps_zi_xi_tong.md)
 
