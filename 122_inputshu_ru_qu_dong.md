@@ -43,6 +43,9 @@ KeyCharacterMap Java框架层的代码如下：
 * android.view.KeyCharacterMap类是Android平台的API，可以在应用程序中使用这个类。
 * android.text.method中有各种Linstener，相互之间可以监听KeyCharacterMap相关的信息。
 
+
+
+
 ##12.2.4 kl格式文件
 
 
