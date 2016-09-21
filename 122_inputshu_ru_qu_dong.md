@@ -3,6 +3,7 @@
 Input输入驱入程序是Linux输入设备的驱动程序，可以进一步分成游戏杆（joystick）、鼠标（mouse和mice）和事件设备三种驱动程序。其中事件驱动程序是目前通用的驱动程序，可以支持键盘、鼠标、触摸屏等多种输入设备。
 
 Input驱动程序的主设备号是13，每一种Input设备占用5位，因此每种设备包含的个数是32个。Event设备在用户空间使用如下三种文件系统来操作接口。
+
 * Read：用于读取输入信息。
 * Ioctl：用于获得和设置信息。
 * Poll：调用可以进行用户空间的阻塞，当内核有按键等中断，通过在中断中唤醒poll的内核实现，这样在用户空间的poll调用也可以返回。
@@ -36,9 +37,12 @@ input_dev中定义并归纳了各种设备的信息，例如按键、相对设�
 文件frameworks/base/include/ui/KeyCharacterMap.h也是本地框架层libui的头文件，在其中定义了按键的字符映射关系。其实KeyCharacterMap只是一个辅助的功能，因为按键码只是一个与UI无关的证书，通常用程序对其进行捕获处理。如果将按键事件转换为用户可见的内容，需要经过这个层次的转换。
 
 KeyCharacterMap需要从本地层传送到Java层，JNI的代码路径如下所示：
-frameworks/base/core/jni/android_text_KeyCharacterMap.cpp
+
+* frameworks/base/core/jni/android_text_KeyCharacterMap.cpp
+
 
 KeyCharacterMap Java框架层的代码如下：
+
 * frameworks/base/core/Java/android/view/KeyCharacterMap.Java
 * android.view.KeyCharacterMap类是Android平台的API，可以在应用程序中使用这个类。
 * android.text.method中有各种Linstener，相互之间可以监听KeyCharacterMap相关的信息。
