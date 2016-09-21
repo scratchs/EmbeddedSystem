@@ -42,9 +42,8 @@ KeyCharacterMap Java框架层的代码如下：
 * frameworks/base/core/Java/android/view/KeyCharacterMap.Java
 * android.view.KeyCharacterMap类是Android平台的API，可以在应用程序中使用这个类。
 * android.text.method中有各种Linstener，相互之间可以监听KeyCharacterMap相关的信息。
-*
 
-##12.2.4  kl格式文件
+##12.2.4 kl格式文件
 
 
 Android默认提供的按键布局文件主要包括qwerty.kl和AVRCP.kl。其中qwerty.kl是全键盘布局文件，是系统中主要按键使用的布局文件。AVRCP.kl用于多媒体的控制，ACRCP的含义为Audio/Video Remote Control Profile。
