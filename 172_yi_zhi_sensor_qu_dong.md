@@ -44,16 +44,15 @@ include $(BUILD_SHARED_LIBRARY)```
 Sensor模块sensors_module_t的定义如下所示：
 
 ```struct sensors_module_t {
-    struct hw_module_t common;
+    struct hw_module_t common;```
 
-    /**
-     * Enumerate all available sensors. The list is returned in "list".
-     * @return number of sensors in the list
-     */
+    
+     // Enumerate all available sensors. The list is returned in "list".
+    // @return number of sensors in the list
     int (*get_sensors_list)(struct sensors_module_t* module,
 
     struct sensor_t const** list);
-};```
+};
 
 
 ## 17.2.3 实现上层部分
@@ -66,6 +65,7 @@ Sensor模块sensors_module_t的定义如下所示：
 * 实现传感器的JNI部分和Java框架部分。
 
 Android中Sensor传感器系统的JNI部分的实现文件是“frameworks/base/core/jni/android_hardware_SensorManager.cpp”，它提供了对类android.hardware.Sensor.Manage的本地支持。此文件是Sensor的Java部分和硬件抽象层的接口。这部分内容是Sensor的Java部分和硬件抽象层接口，Sensor的JNI部分直接调用硬件抽象层，需要包含本地的头文件“hardware/sensors.h”。实际上，Java层得到的Sensor数据，是在这里获得并且赋值的。文件com_android_server_SensorService.cpp和android_hardware_SensorManager.cpp联合使用，通过文件“android\hardware\libhardware\hardware.c”与sensor.so实现通信。
+
 * 在Java Framework中调用传感器的部分
 
 Sensor传感器系统的Java部分在“frameworks/base/include/core/java/android/hardware/”目录中定义，包含了以下几个文件。
@@ -79,6 +79,7 @@ SensorEvent.java：实现传感器系统的事件类SensorEvent。
 SensorEventListener.java：传感器事件的监听者SensorEventListener接口。
 
 其中SensorManager、Sensor和SensorEvent是3个类，SensorEventListener和SensorListener是2个接口。这几个文件都是Android平台API的接口。
+
 * 在应用程序中调用传感器
 
 在Java应用层中可以调用SensorManager，通常通过SensorEventListener注册回调函数的方式实现对Sensor系统的调试。
