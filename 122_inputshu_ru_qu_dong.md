@@ -6,7 +6,7 @@ Input驱动程序的主设备号是13，每一种Input设备占用5位，因此�
 * Read：用于读取输入信息。
 * Ioctl：用于获得和设置信息。
 * Poll：调用可以进行用户空间的阻塞，当内核有按键等中断，通过在中断中唤醒poll的内核实现，这样在用户空间的poll调用也可以返回。
-* 
+
 Event设备在文件系统中的设备节点为/dev/input/eventX目录。主设备号为13，次设备号按照递增顺序生成，为64~95，各个具体的设备保存在misc、touchscreen和keyboard等目录中。
 
 Android输入设备驱动程序的头文件是include/linux/input.h，核心文件是drivers/input/input.c，Event部分的代码文件是drivers/input/evdev.c。
