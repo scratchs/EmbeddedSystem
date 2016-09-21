@@ -22,12 +22,9 @@ GPS的硬件接口相对简单，除开供电，reset等控制，一般仅通过
 ## 16.3.3 硬件抽象层
 GPS硬件抽象层的主要入口如下所示。
 
-const GpsInterface* gps_get_hardware_interface();
-
-
-   //返回实际硬件的实现接口
+```const GpsInterface* gps_get_hardware_interface();//返回实际硬件的实现接口
 const GpsInterface* gps_get_qemu_interface();		//返回模拟器的实现接口
-const GpsInterface* gps_get_interface();			//获取GpsInterface接口
+const GpsInterface* gps_get_interface();			//获取GpsInterface接口```
 
 
 实现硬件抽象层，首先是主入口的实现。Android提供了gps.cpp的标准实现，用于通过宏开关模拟器实现和硬件实现。因此对普通的硬件实现来说，实现gps_get_hardware_interface，返回定义的GpsInterface接口即可。
@@ -40,7 +37,9 @@ GPS初始化完成后，一般都会新开一个polling线程，对GPS端口进�
 
 解析的工作在获取数据后进行，这里的目的是将NMEA数据解析成Android卡框架可以识别的结构信息，存放到GpsLocation以及GpsSvInfo等，以便上报。对于NMEA数据的解析，已经有非常多的参考实现。Android在gps_qemu.c中也给出了大部分的参考实现。可以照搬这部分的内容。
 上报过程，在解析完后进行，直接调用init时注册的callback函数，并填入获取到的数据结构即可。
+
 ## 16.3.4 上层应用
+
 * LocationManager
 * initialize()函数
 * 在文件GpsLocationProvider.cpp
