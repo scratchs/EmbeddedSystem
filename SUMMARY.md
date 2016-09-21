@@ -14,5 +14,5 @@
    * [13.1 LCD基础介绍](131_lcdji_chu_jie_shao.md)
    * [13.2 LCD驱动介绍](132_lcdqu_dong_jie_shao.md)
    * [13.3 FrameBuffer驱动的HAL层分析](133_framebufferqu_dong_de_hal_ceng_fen_xi.md)
-   * 13.4 小结
+   * [13.4 小结](134_xiao_jie.md)
 
