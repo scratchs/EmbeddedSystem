@@ -23,5 +23,5 @@
 * [第15章 WiFi子系统](di_15_zhang_wifi_zi_xi_tong.md)
    * [15.1 WiFi系统的结构](151_wifixi_tong_de_jie_gou.md)
    * [15.2 移植和调试](152_yi_zhi_he_diao_shi.md)
-   * 15.3 配置WiFi的流程
+   * [15.3 配置WiFi的流程](153_pei_zhi_wifi_de_liu_cheng.md)
 
