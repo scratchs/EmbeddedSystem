@@ -28,5 +28,5 @@
 * [第16章 GPS子系统](di_16_zhang_gps_zi_xi_tong.md)
    * [16.1 GPS系统简介](161_gpsxi_tong_jian_jie.md)
    * [16.2 GPS系统的结构](162_gpsxi_tong_de_jie_gou.md)
-   * 16.3 移植和调试
+   * [16.3 移植和调试](163_yi_zhi_he_diao_shi.md)
 
