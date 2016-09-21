@@ -1,2 +1,57 @@
 # 13.3 FrameBuffer驱动的HAL层分析
 
+本节主要介绍FrameBuffer驱动的HAL层。本书之前介绍过，在Android系统中，一个完整的Linux驱动应该包含HAL层的Library。这些HAL Library直接与Linux驱动交互。而更高层的C/C++、Java Library通过访问HAL Library的方式与Linux驱动交互。所以HAL Library对于Linux驱动的体系架构起到承前启后的作用。对于FrameBuffer驱动，HAL Library是Gralloc。
+## 13.3.1  Gralloc库
+
+Android自Ecalir版本之后便使用Gralloc模块作为显示部分硬件抽象层。这是一个Android标准的硬件模块，其头文件在hardware/libhardware/include/hardware/目录中的gralloc.h定义。
+
+gralloc_module_t是模块的核心，其定义的函数指针的功能如下所示：
+
+* registerBuffer需要在alloc_device_t::alloc之前被调用，其参数类型buffer_handle_t实际上就是一个native_handle。ungisterBuffer用于不再需要这个模块的时候。
+* lock用于访问特定访问缓冲区，在调用这个接口的时候，硬件设备需要结束渲染或者完成同步，其参数指定一个区域。unlock用于所有buffer改变之后被调用。
+* perform用于未来特定的用途，实际上在Android中，有上层部分会调用这个借口，但是这个调用是可选的
+
+## 13.3.2  Gralloc与上层的关系
+
+Gralloc模块主要由gralloc_module_t模块，alloc_device_t设备和framebuffer_device_t设备3个结构体来描述，其中的各个函数指针是实现的关键。
+
+Gralloc模块的主要调用者是ui库中的以下文件，路径如下所示：
+
+framework/base/libs/ui/FramebufferNativeWindows.cpp
+
+FramebufferNativeWindow.cpp中定义了类FramebufferNativeWindow，这个类本身是继承了android_native_window_t，表示一个Android中的本地窗口。Android_native_window_t是对上层的接口，FramebufferNativeWindow是它的实现。
+
+
+FramebufferNativeWindow使用的双显示区缓冲的方式，其初始化过程主要的内容分成以下几个步骤：
+
+* 打开Gralloc模块，并打开了framebuffer_device_t和alloc_device_t这两个设备。
+* 从framebuffer_device_t设备中获得显示区的宽、高颜色格式，建立NativeBuffer结构。
+* 从alloc_device_t设备中分配内存到NativeBuffer的句柄中。
+* 获得framebuffer_device_t设备中的其他信息。
+* 赋值setSwapInterval，queueBuffer、dequeueBuffer和query等几个函数指针。
+
+FramebufferNativeWindow类中setSwapInterval、queueBuffer和query等几个函数的实现和framebuffer_device_t由密切的关系。setSwapInterval调用的是framebuffer_device_t设备的setSwapInterval:dequeueBuffer的实现调用的是framebuffer_device_t设备的post:query是从framebuffer_device_t设备获得信息。
+
+FramebufferNativeWindow实际上是对Gralloc模块的一层封装，向Android的本地代码层提供了用于显示的android_native_window_t结构。
+
+除了主要的FramebufferNativeWindow之外，Android的libui库和SurvaceFlinger中，还有其他部分对Gralloc模块有所调用。
+
+## 13.3.3 调用Gralloc HAL库
+
+在Android系统中调用Gralloc HAL Library的程序很多。本节将使用比较重要的一个调用者——FrameBufferNativeWindows.cpp文件——分析如何调用Gralloc HAL Library。FramebufferNativeWindows.cpp中的代码用于创建和维护本地窗口。该文件的路径如下：
+
+/frameworks/base/libs/ui/FramebufferNativeWindows.cpp
+
+FramebufferNativeWindows.cpp文件中是对一个C++类FramebufferNativeWindow的实现。在FramebufferNativeWindow类的构造方法中获取了Gralloc HAL模块和HAL设备，并调用了相应的函数进行初始化。
+
+
+FramebufferNativeWindow类的构造方法主要做的工作如下：
+
+* 调用hw_get_module函数获取Gralloc HAL模块。
+* 调用framebuffer_open和gralloc_open函数获取FB和GPU设备。
+* 调用GPU设备的alloc函数分配两个Buffer来支持双缓冲区技术。
+* 初始化ANativeWindow结构体的成员变量。
+
+framebuffer_open和gralloc_open函数往往会在很多地方被调用，所以这两个函数并没有在FramebufferNativeWindows.cpp文件中，而是在如下的文件中实现。
+
+/hardware/libhardware/include/hardware/hardware.h
