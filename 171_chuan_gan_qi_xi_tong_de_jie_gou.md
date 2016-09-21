@@ -25,7 +25,7 @@ Android的传感器系统用于获取外部的信息，在传感器系统下层�
 
  * 模块方面：在结构体sensors_module_t中定义，包括下面的一个函数。
  * * int(*get_sensors_list)(struct sensors_module_t* module, struct sensor_t const** list)
-
+![](图片13.png)
 2.  传感器系统HAL层
 头文件路径是：
 hardware/libhardware/include/hardware/sensors.h，传感器系统的硬件抽象层需要根据所移植的平台特定实现。
