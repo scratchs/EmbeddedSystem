@@ -16,5 +16,5 @@
    * [13.3 FrameBuffer驱动的HAL层分析](133_framebufferqu_dong_de_hal_ceng_fen_xi.md)
    * [13.4 小结](134_xiao_jie.md)
 * [第14章 Audio子系统](di_14_zhang_audio_zi_xi_tong.md)
-   * 14.1 音频驱动的基础
+   * [14.1 音频驱动的基础](141_yin_pin_qu_dong_de_ji_chu.md)
 
