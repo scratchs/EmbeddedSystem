@@ -19,4 +19,5 @@
    * [14.1 音频驱动的基础](141_yin_pin_qu_dong_de_ji_chu.md)
    * [14.2 音频系统的层次](142_yin_pin_xi_tong_de_ceng_ci.md)
    * [14.3 音频系统的硬件抽象层](143_yin_pin_xi_tong_de_ying_jian_chou_xiang_ceng.md)
+* 14.4 小结
 
