@@ -12,7 +12,7 @@ Event设备在文件系统中的设备节点为/dev/input/eventX目录。主设�
 
 Android输入设备驱动程序的头文件是include/linux/input.h，核心文件是drivers/input/input.c，Event部分的代码文件是drivers/input/evdev.c。
 
-##12.2.1文件input.h
+## 12.2.1文件input.h
 
 在手机系统中使用的键盘（keyboard）和小键盘（kaypad）属于按键设备EV_KEY，轨迹球属于相对设备EV_REL，触摸屏属于绝对设备EV_ABS。
 
@@ -22,7 +22,7 @@ input_dev中定义并归纳了各种设备的信息，例如按键、相对设�
 
 在具体实现Event驱动程序时，如果得到按键的事件，通常需要通过以下的接口向上进行通知。
 
-##12.2.2 文件KeycodeLabels.h
+## 12.2.2 文件KeycodeLabels.h
 
 
 触摸屏和轨迹球上报的是坐标、按下、抬起等信息，信息量比较少。按键处理的过程稍微复杂，从驱动程序到Android的Java层受到的信息，键表示方式经过了两次转化。
@@ -31,7 +31,7 @@ input_dev中定义并归纳了各种设备的信息，例如按键、相对设�
 
 在文件KeycodeLabels.h中，按键码整数值的格式，在此文件中是通过枚举实现的。进而定义了数组KEYCODES[]，功能是存储从字符串到整数的映射关系。左列内容即表示按键标签KeyCodeLabel，右列的内容为按键码KeyCode（与KeyCode的数值对应）。在按键信息第二次转化的时候，已经将字符串类型KeyCodeLabel转换成整数的KeyCode。
 
-##12.2.3 文件KeyCharacterMap.h
+## 12.2.3 文件KeyCharacterMap.h
 
 
 文件frameworks/base/include/ui/KeyCharacterMap.h也是本地框架层libui的头文件，在其中定义了按键的字符映射关系。其实KeyCharacterMap只是一个辅助的功能，因为按键码只是一个与UI无关的证书，通常用程序对其进行捕获处理。如果将按键事件转换为用户可见的内容，需要经过这个层次的转换。
@@ -50,7 +50,11 @@ KeyCharacterMap Java框架层的代码如下：
 
 
 
-##12.2.4 kl格式文件
+## 12.2.4 kl格式文件
+
+
+
+
 
 
 Android默认提供的按键布局文件主要包括qwerty.kl和AVRCP.kl。其中qwerty.kl是全键盘布局文件，是系统中主要按键使用的布局文件。AVRCP.kl用于多媒体的控制，ACRCP的含义为Audio/Video Remote Control Profile。
@@ -59,7 +63,7 @@ Android默认提供的按键布局文件主要包括qwerty.kl和AVRCP.kl。其�
 
 扫描码来自驱动程序，显然不同的扫描码可以对应一个按键标签。表示物理上的两个按键可以对应同一个功能按键。
 
-##12.2.5   kcm格式文件
+## 12.2.5   kcm格式文件
 
 
 kcm格式文件是按键字符映射文件，用于表示按键字符的映射关系，功能是将整数类型按键码（keycode）转化成可以显示的字符。kcm文件将被makekcharmap工具转化成二进制的格式，放在目标系统的/system/usr/keychars/目录中。
@@ -68,7 +72,7 @@ kcm格式文件是按键字符映射文件，用于表示按键字符的映射�
 
 kcm文件将被makekcharmap工具转化成二进制的格式，放在目标系统的/system/usr/keychars/目录中。
 
-##12.2.6 文件EventHub.cpp
+## 12.2.6 文件EventHub.cpp
 
 
 文件EventHub.cpp位于libhui库中的frameworks/base/libs/ui目录下，此文件是输入系统的核心控制文件，整个输入系统的主要功能都是在此文件中实现的。例如当按下电源键后，系统把scanCode写入对应的设备节点，文件EventHub.cpp会读这个设备节点，并把scanCode通过kl文件对应成keyCode发送到上层。
