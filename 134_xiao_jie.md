@@ -1,2 +1,3 @@
 # 13.4 小结
 
+LCD驱动是Linux内核中比较复杂的驱动，它的功能是操作显示设备并获得显示终端。在Linux内核中LCD驱动采用了帧缓冲（FrameBuffer）技术，所以LCD驱动又叫做FrameBuffer驱动。本章详细介绍了FrameBuffer驱动的实现，帮助读者更好地理解FrameBuffer驱动。
