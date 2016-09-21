@@ -22,5 +22,5 @@
    * [14.4 小结](144_xiao_jie.md)
 * [第15章 WiFi子系统](di_15_zhang_wifi_zi_xi_tong.md)
    * [15.1 WiFi系统的结构](151_wifixi_tong_de_jie_gou.md)
-   * 15.2 移植和调试
+   * [15.2 移植和调试](152_yi_zhi_he_diao_shi.md)
 
