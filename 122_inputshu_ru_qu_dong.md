@@ -38,24 +38,34 @@ input_dev中定义并归纳了各种设备的信息，例如按键、相对设�
 
 KeyCharacterMap需要从本地层传送到Java层，JNI的代码路径如下所示：
 
-* frameworks/base/core/jni/android_text_KeyCharacterMap.cpp
+frameworks/base/core/jni/android_text_KeyCharacterMap.cpp
 
 
 KeyCharacterMap Java框架层的代码如下：
 
-* frameworks/base/core/Java/android/view/KeyCharacterMap.Java
-* android.view.KeyCharacterMap类是Android平台的API，可以在应用程序中使用这个类。
-* android.text.method中有各种Linstener，相互之间可以监听KeyCharacterMap相关的信息。
+ frameworks/base/core/Java/android/view/KeyCharacterMap.Java
+ 
+ android.view.KeyCharacterMap类是Android平台的API，可以在应用程序中使用这个类。
+ 
+ android.text.method中有各种Linstener，相互之间可以监听KeyCharacterMap相关的信息。
 
+上面关于按键码和按键字符映射的内容是在代码中实现的内容，还需要配合动态的配置文件来使用。在实现Android系统的时候，很可能需要更改这两种文件。需要动态配置下面的两个文件。
 
+* KL（Keycode Layout）：后缀名为kl的配置文件。
+* KCM（KeyCharacterMap）：后缀名为kcm的配置文件。
+
+Donut及其之前版本的配置文件路径为：
+
+development/emulator/keymaps/
+
+Ecliar及其之后配置文件的路径为：
+
+sdk/emulator/keympas/
+
+当系统生成上述配置文件后，将会被放置在目标文件系统的“/system/usr/keylaout/”目录中或“/system/usr/keychars/”目录中。另外，kl文件将被直接复制到目标文件系统中：由于次春较大，kcm文件放置在目标文件系统中之前，需要经过压缩处理。KeyLayoutMap.cpp负责解析处理kl文件，KeyCharacterMap.cpp负责解析kcm文件。
 
 
 ## 12.2.4 kl格式文件
-
-
-
-
-
 
 Android默认提供的按键布局文件主要包括qwerty.kl和AVRCP.kl。其中qwerty.kl是全键盘布局文件，是系统中主要按键使用的布局文件。AVRCP.kl用于多媒体的控制，ACRCP的含义为Audio/Video Remote Control Profile。
 
