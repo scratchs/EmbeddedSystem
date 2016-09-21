@@ -5,7 +5,7 @@
 * Audio策略管理的内容
 * 上层的情况和注意事项
 
-14.3.1 Audio硬件抽象层的接口
+## 14.3.1 Audio硬件抽象层的接口
 
 Audio的硬件抽象层是AudioFlinger和Audio硬件之间的层次，在各个系统的移植过程中可以有不同的实现方式。
 
@@ -14,7 +14,7 @@ Audio硬件抽象层的接口路径为:
 
 在AudioHardwareInterface.h中定义了类：AudioStreamOut、AudioStreamIn和AudioHardwareInterface，分别用于输出、输入和管理。
 
-14.3.2 实现Audio硬件抽象层
+## 14.3.2 实现Audio硬件抽象层
 
 在Android 2.3.4中Audio HAL Library的相关文件主要分布在如下的目录。
 
