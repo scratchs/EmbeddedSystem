@@ -30,5 +30,5 @@
    * [16.2 GPS系统的结构](162_gpsxi_tong_de_jie_gou.md)
    * [16.3 移植和调试](163_yi_zhi_he_diao_shi.md)
    * [16.4 小结](164_xiao_jie.md)
-* 第17章 传感器系统
+* [第17章 传感器系统](di_17_zhang_chuan_gan_qi_xi_tong.md)
 
