@@ -35,5 +35,5 @@
    * [17.3 实现传感器](173_shi_xian_chuan_gan_qi.md)
    * [17.4 小结](174_xiao_jie.md)
 * [第8章 Android系统开发概述](第8章-android系统开发概述.md)
-   * [81-android系统架构.md](81-android系统架构.md)
+   * [8.1 Android系统架构](81-android系统架构.md)
 
