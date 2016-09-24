@@ -49,5 +49,5 @@
    * 第102章-交叉编译工具.md
    * 第103章-makefile.md
    * 第1034章-小结.md
-* 第11章-android-hal层.md
+* [第11章-android-hal层.md](第11章-android-hal层.md)
 
