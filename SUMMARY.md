@@ -30,5 +30,5 @@
    * [17.2 移植Sensor驱动](172_yi_zhi_sensor_qu_dong.md)
    * [17.3 实现传感器](173_shi_xian_chuan_gan_qi.md)
    * [17.4 小结](174_xiao_jie.md)
-* 第7章--adc接口
+* [第7章--adc接口](第7章--adc接口)
 
