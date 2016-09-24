@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [第7章--adc接口](第7章--adc接口)
+* [第7章--adc接口](di_7_7ae0--_adc_jie_kou.md)
    * [7.1 ADC接口介绍](71-adc接口介绍.md)
 * [第12章 Input输入子系统](di_12_zhang_input_shu_ru_zi_xi_tong.md)
    * [12.1 用户输入子系统](121_yong_hu_shu_ru_zi_xi_tong.md)
@@ -32,5 +32,4 @@
    * [17.2 移植Sensor驱动](172_yi_zhi_sensor_qu_dong.md)
    * [17.3 实现传感器](173_shi_xian_chuan_gan_qi.md)
    * [17.4 小结](174_xiao_jie.md)
-
 
