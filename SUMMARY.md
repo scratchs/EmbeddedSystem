@@ -50,6 +50,6 @@
    * 第103章-makefile.md
    * 第1034章-小结.md
 * [第11章-android-hal层.md](第11章-android-hal层.md)
-   * 111-初识hal层.md
+   * [111-初识hal层.md](111-初识hal层.md)
    * 112-hal层的实现原理.md
 
