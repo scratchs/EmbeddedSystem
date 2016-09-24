@@ -37,4 +37,5 @@
 * [第8章 Android系统开发概述](第8章-android系统开发概述.md)
    * [8.1 Android系统架构](81-android系统架构.md)
    * [8.2 Android系统内核](82-android系统内核.md)
+   * 83-系统移植的概念.md
 
