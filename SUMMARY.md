@@ -1,8 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [第7章--adc接口](di_7_7ae0--_adc_jie_kou.md)
-   * [7.1 ADC接口介绍](71-adc接口介绍.md)
 * [第12章 Input输入子系统](di_12_zhang_input_shu_ru_zi_xi_tong.md)
    * [12.1 用户输入子系统](121_yong_hu_shu_ru_zi_xi_tong.md)
    * [12.2 Input输入驱动](122_inputshu_ru_qu_dong.md)
