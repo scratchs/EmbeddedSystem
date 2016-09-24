@@ -49,7 +49,7 @@
    * [第10.2章 交叉编译工具](第102章-交叉编译工具.md)
    * [第10.3章 Makefile](第103章-makefile.md)
    * [第10.4章 小结](第1034章-小结.md)
-* [第11章-android-hal层.md](第11章-android-hal层.md)
+* [第11章 Android HAL层](第11章-android-hal层.md)
    * [111-初识hal层.md](111-初识hal层.md)
    * 112-hal层的实现原理.md
    * 113-小结.md
